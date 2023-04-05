@@ -674,7 +674,7 @@ void display() {
     glLightfv(GL_LIGHT0, GL_POSITION, position);
 
 
-    drawAxes();
+    //drawAxes();
     //drawGrid(1000);
 
     //glColor3f(1,0,0);
@@ -940,6 +940,7 @@ void display() {
     drawMainCar();         //----car
 
     glPushMatrix();
+    glTranslatef(-20, 0, 0);
     drawCar1();
     glPopMatrix();
 
@@ -949,7 +950,7 @@ void display() {
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(10, 0, 0);
+    glTranslatef(-5, 0, 0);
     drawCar3();
     glPopMatrix();
 
@@ -986,23 +987,7 @@ void init() {
     //glEnable(GL_LIGHT1);
     //glEnable(GL_LIGHT2);
 
-   // glShadeModel(GL_SMOOTH);
-   // //material
-   // glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-   // glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-   // glLightfv(GL_LIGHT0, GL_POSITION, light_position1);
-   // //glLightfv(GL_LIGHT1, GL_POSITION, light_position2);
-   // glLightfv(GL_LIGHT0, GL_DIFFUSE, white_light);
-   // glLightfv(GL_LIGHT0, GL_SPECULAR, white_light);
-   // glLightfv(GL_LIGHT0, GL_DIFFUSE, yellow_light);
-   //// glLightfv(GL_LIGHT1, GL_DIFFUSE, blue_light);
-   // glLightfv(GL_LIGHT0, GL_SPECULAR, yellow_light);
-   //// glLightfv(GL_LIGHT1, GL_SPECULAR, blue_light);
-   // glLightModelfv(GL_LIGHT_MODEL_AMBIENT, white_ambient);
-   // glEnable(GL_LIGHTING);
-   // glEnable(GL_LIGHT0);
-   // //glEnable(GL_LIGHT1);
-   // glEnable(GL_DEPTH_TEST);
+   
 }
 
 
@@ -1048,11 +1033,11 @@ void keyboardSpecial(int key, int x, int y) {
 }
 
 void keyboard(unsigned char key, int x, int y) {
-    if (key == 'Z')	camZ += 0.3;
-    if (key == 'z')	camZ -= 0.3;
+    if (key == 'Z')	camZ += 0.5;
+    if (key == 'z')	camZ -= 0.5;
 
-    if (key == 'X')	camX += 0.3;
-    if (key == 'x')	camX -= 0.3;
+    if (key == 'X')	camX += 0.5;
+    if (key == 'x')	camX -= 0.5;
 
     if (key == 'w')	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     if (key == 'o')	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
