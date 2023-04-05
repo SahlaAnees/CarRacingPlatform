@@ -1008,24 +1008,24 @@ void keyboardSpecial(int key, int x, int y) {
     }
 
     if (key == GLUT_KEY_LEFT) {
-        if (leftRightMove == 50) {
+        if (leftRightMove == 30) {
             leftRightMove = 0;
             //return;
         }
 
         else {
-            leftRightMove += 1.0;
+            leftRightMove += 1.5;
         }
     }
 
     if (key == GLUT_KEY_RIGHT) {
-        if (leftRightMove == -50) {
+        if (leftRightMove == -30) {
             leftRightMove = 0;             //----get back to starting point when try to esc from the road 
             //return;
         }
 
         else {
-            leftRightMove -= 1.0;
+            leftRightMove -= 1.5;
         }
     }
 
@@ -1033,11 +1033,11 @@ void keyboardSpecial(int key, int x, int y) {
 }
 
 void keyboard(unsigned char key, int x, int y) {
-    if (key == 'Z')	camZ += 0.5;
-    if (key == 'z')	camZ -= 0.5;
+    if (key == 'Z')	camZ += 0.8;
+    if (key == 'z')	camZ -= 0.8;
 
-    if (key == 'X')	camX += 0.5;
-    if (key == 'x')	camX -= 0.5;
+    if (key == 'X')	camX += 0.8;
+    if (key == 'x')	camX -= 0.8;
 
     if (key == 'w')	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     if (key == 'o')	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -1072,7 +1072,7 @@ void move1(int v) {
 
 //move blue car
 void move2(int v) {
-    moveCar2 -= 12;
+    moveCar2 -= 10;
     glutPostRedisplay();
     glutTimerFunc(10, move2, 0);
 }
