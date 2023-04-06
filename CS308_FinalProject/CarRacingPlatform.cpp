@@ -147,7 +147,7 @@ void drawMainCar() {
     //front left wheel
     glPushMatrix();
     glTranslatef(4, 5, -2);
-    glColor3f(1, .3, 8);
+    glColor3f(1, 1, 0);
     glScalef(2, .7, 1);
     glutSolidSphere(2, 100, 100);
     glPopMatrix();
@@ -155,7 +155,7 @@ void drawMainCar() {
     glPushMatrix();
     //front right wheel
     glTranslatef(-4, 5, -2);
-    glColor3f(1, 0, 1);
+    glColor3f(1, 1, 0);
     glScalef(1, .7, 1);
     glutSolidSphere(2, 100, 100);
     glPopMatrix();
@@ -163,7 +163,7 @@ void drawMainCar() {
     //back left wheel
     glPushMatrix();
     glTranslatef(4, -5, -2);
-    glColor3f(1, .6, 8);
+    glColor3f(1, 1, 0);
     glScalef(1, .7, 1);
     glutSolidSphere(2, 100, 100);
     glPopMatrix();
@@ -171,7 +171,7 @@ void drawMainCar() {
     //back right wheel
     glPushMatrix();
     glTranslatef(-4, -5, -2);
-    glColor3f(1, .3, 8);
+    glColor3f(1, 1, 0);
     glScalef(1, .7, 1);
     glutSolidSphere(2, 100, 100);
     glPopMatrix();
@@ -815,13 +815,13 @@ void display() {
                 glPopMatrix();
             }
 
-            else if (i == 11) {
-                glPushMatrix();
-                glTranslatef(120, -j, 0);
-                glRotatef(180, 0, 0, 1);
-                drawLightTower();         //---Light tower
-                glPopMatrix();
-            }
+            //else if (i == 11) {
+            //    glPushMatrix();
+            //    glTranslatef(120, -j, 0);
+            //    glRotatef(180, 0, 0, 1);
+            //    drawLightTower();         //---Light tower
+            //    glPopMatrix();
+            //}
 
             else if (i > 11 && i <= 14) {
                 glPushMatrix();
@@ -1029,6 +1029,7 @@ void keyboardSpecial(int key, int x, int y) {
         }
     }
 
+
     glutPostRedisplay();
 }
 
@@ -1044,6 +1045,16 @@ void keyboard(unsigned char key, int x, int y) {
 
     if (key == '1')	glEnable(GL_LIGHT0);
     if (key == '!')	glDisable(GL_LIGHT0);
+
+    if (key == 'a') {
+        car = 0;
+        camY = 50;
+        sky = -1000;
+        leftRightMove = 0;
+        moveCar1 = 0;
+        moveCar2 = 0;
+        moveCar3 = 0;
+    }
 
     glutPostRedisplay();
 }
